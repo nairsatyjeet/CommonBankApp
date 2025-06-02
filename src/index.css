@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #0A2463;
+  --secondary: #FFD700;
+  --success: #36B37E;
+  --warning: #FFAB00;
+  --error: #FF5630;
+}
+
+@layer base {
+  html {
+    @apply font-sans text-gray-900 antialiased;
+  }
+  
+  body {
+    @apply bg-background-light min-h-screen;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-opacity-50;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-secondary-500 text-primary-900 hover:bg-secondary-600 focus:ring-secondary-400;
+  }
+  
+  .btn-success {
+    @apply btn bg-success-500 text-white hover:bg-success-600 focus:ring-success-400;
+  }
+  
+  .btn-warning {
+    @apply btn bg-warning-500 text-white hover:bg-warning-600 focus:ring-warning-400;
+  }
+  
+  .btn-error {
+    @apply btn bg-error-500 text-white hover:bg-error-600 focus:ring-error-400;
+  }
+  
+  .btn-outline {
+    @apply btn bg-transparent border border-primary-600 text-primary-600 hover:bg-primary-50 focus:ring-primary-500;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-card p-6 transition-shadow duration-300 hover:shadow-card-hover;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+  }
+  
+  .atm-screen {
+    @apply max-w-4xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden;
+  }
+  
+  .atm-header {
+    @apply bg-primary-900 text-white p-4 flex justify-between items-center;
+  }
+  
+  .atm-body {
+    @apply p-6;
+  }
+  
+  .atm-keypad {
+    @apply grid grid-cols-3 gap-2 mt-4;
+  }
+  
+  .atm-key {
+    @apply btn bg-gray-200 text-gray-800 font-bold text-xl py-3;
+  }
+  
+  .pinpad-container {
+    @apply grid grid-cols-3 gap-3 max-w-xs mx-auto mt-4;
+  }
+  
+  .pinpad-key {
+    @apply btn bg-gray-100 border border-gray-300 text-primary-900 font-bold text-xl h-14 w-14 rounded-md flex items-center justify-center;
+  }
+  
+  .banking-feature {
+    @apply flex flex-col items-center p-5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer;
+  }
+}
+
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.loading-dot {
+  animation: loading 1.4s infinite ease-in-out both;
+}
+
+.loading-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loading-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes loading {
+  0%, 80%, 100% { 
+    transform: scale(0);
+  } 40% { 
+    transform: scale(1.0);
+  }
+}
